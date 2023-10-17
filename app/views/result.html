@@ -1,0 +1,96 @@
+{% extends "layouts/main.html" %}
+
+{% from "nationalarchives/components/button/macro.njk" import tnaButton %}
+{% from "nationalarchives/components/breadcrumbs/macro.njk" import tnaBreadcrumbs %}
+{% from "nationalarchives/components/pagination/macro.njk" import tnaPagination %}
+
+{% block pageTitle %}Result - OHOS{% endblock %}
+
+{% block content %}
+{{ tnaBreadcrumbs({
+  items: [
+    {
+      text: "Home",
+      href: "/"
+    },
+    {
+      text: "Search",
+      href: "/search"
+    }
+  ]
+}) }}
+<div class="tna-section">
+  <div class="tna-container">
+    <div class="tna-column tna-column--full">
+      <p>You are viewing the catalogue description of the folloing item:</p>
+      <h1 class="tna-heading tna-heading--xl tna-!--margin-top-xs">
+        Dolly and Jack Chown with Robert Prior, Vicar of Godolphin doorway at Townshend House, 1909
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="tna-background--contrast">
+  <div class="tna-section">
+    <div class="tna-container tna-container--centred">
+      <div class="tna-column">
+        <img src="https://picsum.photos/id/782/768/1024" width="384" height="512">
+        {{ tnaButton({
+          text: "View large image",
+          href: "#",
+          accent: true
+        }) }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class="tna-section">
+  <div class="tna-container">
+    <div class="tna-column tna-column--full">
+      <dl class="tna-dl">
+        <dt>Description</dt>
+        <dd>Robert Prior of Godolphin</dd>
+        <dt>Coverage</dt>
+        <dd>Townshend Village</dd>
+        <dt>Date</dt>
+        <dd>1909</dd>
+        <dt>Identifier</dt>
+        <dd>CHOWN WG 008</dd>
+        <dt>Source</dt>
+        <dd>CHOWN</dd>
+        <dt>Format</dt>
+        <dd>Whole Plate Glass Negative</dd>
+        <dt>Publisher</dt>
+        <dd>
+          <a href="#">Morrab Library</a>
+        </dd>
+      </dl>
+      {{ tnaPagination({
+        previous: {
+          href: "#"
+        },
+        next: {
+          href: "#"
+        }
+      }) }}
+    </div>
+  </div>
+</div>
+<div class="tna-section">
+  <div class="tna-container">
+    <div class="tna-column tna-column--full">
+      <h2 class="tna-heading tna-heading--l">
+        About this collection
+      </h2>
+      <div class="ohos-section-info">
+        <h3 class="tna-heading tna-heading--m">
+          CHOWN
+        </h3>
+        <p>The Chown Collection is a fascinating portrait of Edwardian family life in the village of Townshend. Beautiful composed photographs of horse-drawn vehicles, the arrival of the motor car, and Edwardian costume are all well-covered.</p>
+        <p>
+          <a href="#">View series description</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

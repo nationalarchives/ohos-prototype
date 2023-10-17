@@ -1,20 +1,80 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% from "nationalarchives/components/button/macro.njk" import tnaButton %}
+
+{% set theme = "light" %}
+{% set accent = "yellow" %}
+
+{% block pageTitle %}Welcome - OHOS{% endblock %}
 
 {% block content %}
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+<div class="tna-background--tint">
+  <div class="tna-section">
+    <div class="tna-container">
+      <div class="tna-column tna-column--full">
+        <h1 class="tna-heading tna-heading--xl">
+          Search
+        </h1>
+        <p>Community-generated digital content and records from UK archives.</p>
+        <form action="/search" class="ohos-search">
+          <input type="search" class="ohos-search__input">
+          {{ tnaButton({
+            text: "Search",
+            buttonElement: true,
+            attributes: {
+              type: "submit"
+            }
+          }) }}
+        </form>
+      </div>
+    </div>
   </div>
 </div>
-
+<div class="tna-section">
+  <div class="tna-container">
+    <div class="tna-column tna-column--full">
+      <h2 class="tna-heading tna-heading--l">
+        What can you find in the Observatory?
+      </h2>
+      <ul class="tna-columns tna-columns--3 tna-columns--2-small tna-columns--2-tiny ohos-stats tna-!--margin-top-m">
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-building-columns"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">250</span> Archives
+          </span>
+        </li>
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-user"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">58,679</span> People &amp; Groups
+          </span>
+        </li>
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-folder-open"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">64,789</span> Collections
+          </span>
+        </li>
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-location-dot"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">75,000</span> Locations
+          </span>
+        </li>
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-file"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">343,567</span> Documents
+          </span>
+        </li>
+        <li class="ohos-stats__item tna-columns__block">
+          <i class="fa-solid fa-calendar-days"></i>
+          <span class="ohos-stats__stat">
+            <span class="ohos-stats__number">1,577</span> Events
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 {% endblock %}

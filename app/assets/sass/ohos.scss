@@ -1,0 +1,148 @@
+@use "sass:map";
+
+@use "../../../node_modules/@nationalarchives/frontend/nationalarchives/variables/assets" with (
+$tna-font-path:
+"/plugin-assets/%40nationalarchives%2Ffrontend/nationalarchives/assets/fonts",
+$fa-font-path:
+"/plugin-assets/%40nationalarchives%2Ffrontend/nationalarchives/assets/fonts",
+);
+
+@use "../../../node_modules/@nationalarchives/frontend/nationalarchives/variables/colour" with (
+  $colour-palette-default: (
+    "page-background": #f4f4f4,
+    "background-tint": #d8d8d8,
+    "font-base": #222,
+    "font-dark": #047584,
+    "font-light": rgb(0 0 0 / 0.7),
+    "icon-light": rgb(0 0 0 / 0.45),
+    "link": #1d70ab,
+    "link-visited": #4c2c92,
+    "focus-outline": #f1d143,
+    "keyline": #ccc,
+    "keyline-dark": #666,
+    "button-text": #fff,
+    "button-background": #000,
+    "button-hover-text": #000,
+    "button-hover-background": #fff,
+    "contrast-background": #1e1e1e,
+    "contrast-font-base": #fff,
+    "contrast-font-dark": #fff,
+    "contrast-font-light": #fff,
+    "contrast-icon-light": rgb(255 255 255 / 0.45),
+    "contrast-link": #fff,
+    "contrast-link-visited": #fff,
+    "contrast-keyline": rgb(255 255 255 / 0.5),
+    "contrast-keyline-dark": rgb(255 255 255 / 0.8),
+    "contrast-button-text": #000,
+    "contrast-button-background": #fff,
+    "contrast-button-hover-text": #fff,
+    "contrast-button-hover-background": #000,
+    "accent": #f1d143,
+    "accent-background": #f1d143,
+    "accent-background-light": #f1d143,
+    "accent-font-base": #000,
+    "accent-font-dark": #000,
+    "accent-font-light": rgb(0 0 0 / 0.7),
+    "accent-icon-light": rgb(0 0 0 / 0.45),
+    "accent-link": #000,
+    "accent-link-visited": #b9f,
+    "accent-keyline": rgb(255 255 255 / 0.5),
+    "accent-keyline-dark": rgb(255 255 255 / 0.8),
+    "button-accent-text": #000,
+    "button-accent-background": #fa8334,
+  )
+);
+
+@use "../../../node_modules/@nationalarchives/frontend/nationalarchives/tools/colour" as colourTools;
+@use "../../../node_modules/@nationalarchives/frontend/nationalarchives/tools/typography";
+
+@use "../../../node_modules/@nationalarchives/frontend/nationalarchives/all";
+
+#main-content {
+  flex: none !important;
+}
+
+.tna-heading--l,
+.tna-heading--m {
+  @include colourTools.colour-font("font-base");
+}
+
+.tna-aside {
+  padding: 1rem !important;
+}
+
+.tna-pagination {
+  justify-content: space-between !important;
+}
+
+.tna-background--accent {
+  --font-base: #000;
+  --font-dark: #000;
+}
+
+.ohos-search {
+  display: flex;
+  align-items: stretch;
+
+  &__input {
+    display: block;
+    flex: 1;
+
+    @include typography.relative-font-size(20);
+
+    @include colourTools.colour-border("keyline-dark", 1px, solid);
+    border-right: none;
+  }
+}
+
+.ohos-stats {
+  padding: 0;
+
+  list-style: none;
+
+  &__item {
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+
+    @include colourTools.colour-font("font-dark");
+    @include typography.main-font-weight-bold;
+
+    .fa-solid {
+      width: 5rem;
+      height: 5rem;
+
+      flex: 0 0 5rem;
+
+      @include colourTools.colour-font("contrast-font-dark");
+      font-size: 1.75em;
+      text-align: center;
+      line-height: 5rem;
+
+      @include colourTools.colour-background("font-dark");
+
+      border-radius: 100%;
+    }
+  }
+
+  &__stat {
+    line-height: 1.25;
+  }
+
+  &__number {
+    display: block;
+  
+    @include colourTools.colour-font("font-base");
+    font-size: 1.25em;
+  }
+}
+
+.ohos-section-info {
+  padding: 1rem 1.5rem;
+
+  border: #fa8334 0.25rem solid;
+  border-left-width: 3rem;
+}
